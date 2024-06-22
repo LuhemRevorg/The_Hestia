@@ -1,0 +1,262 @@
+body {
+    background-color: #F5F1ED;
+    max-height: 150vh;
+}
+
+.top-logo-name {
+    font-size: 80px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 25rem;
+}
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+}
+
+.header li {
+    margin-right: 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #333;
+}
+
+.header a.active {
+    font-weight: bold;
+    color: #000; 
+}
+
+/* side header */
+
+.sideheader {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 25px;
+    width: 400px; 
+    background-color: white; /* Optional: Add background color */
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    min-height: 700px;
+
+    
+}
+
+.sideheader ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sideheader li {
+    margin-right: 20px;
+}
+
+.sideheader a {
+    display: block; /* Ensure links take full width of the side column */
+    text-decoration: none;
+    color: #333;
+    margin-left: 0;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.sideheader a.active {
+    font-weight: bold;
+    color: #000; 
+}
+
+/*MAIN FROM HERE*/
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.text1 {
+  font-family: "Carrois Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  width: 1058px;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.para {
+    width: 1146px;
+    height: 200px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.butlist {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    padding-bottom: 10rem;
+}
+
+.butlist button {
+    background-color: #F5F1ED;
+    border: 2px solid #000;
+    border-radius: 5px; 
+    padding: 10px 20px;
+    color: #000; 
+    text-decoration: none;
+    font-size: 24px; 
+    cursor: pointer; 
+    width: 294px;
+    height: 64px;
+}
+
+.butlist button a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+.butlist button:hover {
+    background-color: #ddd; 
+}
+
+.imglist {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: 1;
+    gap: 20px;
+}
+
+.unilist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    max-width: 900px;
+}
+
+.unilist img {
+    max-width: calc((100% - 40px) / 3);
+    height: auto;
+    padding: 5px; 
+    border-radius: 5px; 
+}
+
+
+.unilist img.logo {
+    background-color: #F5F1ED;
+    padding: 0; 
+}
+
+
+/*FOOTER FROM HERE*/
+
+.footer {
+    background-color: #000;
+    color: #fff; 
+    padding: 2rem;
+    margin-top: auto; 
+    width: 100% !important;
+
+}
+/* Style the ul and li elements */
+.footer ul {
+    list-style-type: none;
+    justify-content: space-between;
+    max-width: 900px;
+    
+}
+
+.footer ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.socials-row {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10rem;
+
+}
+
+.solid-line {
+    border: 2px solid white;
+}
+
+
+.hyperlink-column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    gap: 20px;
+
+}
+
+.hyperlink-column li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-sideheader-column li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-sideheader-column li a {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    width: auto;
+}
+
+
+.hyperlink-column li a{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    
+}
+/* Fonts */
+
+.jaini-regular {
+    font-family: "Jaini", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+
+  }
+
+  .termsndconditionsform {
+    display: flex;
+    flex-direction: column;
+    padding-left: 250px;
+    width: 1000px;
+    padding-bottom: 100px;
+  }

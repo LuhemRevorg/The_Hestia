@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{% static 'landing.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'yourListing.css' %}">
+</head>
+<body>
+    <div class='container'>
+        <div class="sideheader">
+            <h1 class="top-logo-name">
+                <a href="{% url 'Hestia:index' %}"><img src=" {% static '/images/landing_page/Logo.png' %}" alt="logo" height="150" width="300"></a>
+            </h1> 
+            <ul class="dashboard-sideheader-column">
+                <li>
+                    <a href="{% url 'Hestia:dashboard' %}"><img src="{% static 'images/icons/icons8-dashboard-24.png' %}" alt="dashboard-logo" height="50" width="50">Your listings</a>
+                </li>
+                <li>
+                    <a href="{% url 'Hestia:dashboard' %}"><img src="{% static 'images/icons/icons8-dashboard-24.png' %}" alt="dashboard-logo" height="50" width="50">Cart</a>
+                </li>
+                <li>
+                    <a href="{% url 'Hestia:profile' %}"><img src="{% static 'images/icons/icons8-test-account-50.png' %}" alt="profile-logo" height="50" width="50">Profile</a>
+                </li>
+                <li>
+                    <a href="{% url 'Hestia:settings' %}"><img src="{% static 'images/icons/icons8-settings-30.png' %}" alt="settings-logo" height="50" width="50">Settings</a>
+                </li>
+                <li>
+                    <a href="#"><img src="{% static 'images/icons/icons8-help-50.png' %}" alt="help-logo" height="50" width="50">Help</a>
+                </li>
+                <li>
+                    <a href="{% url 'Hestia:logout' %}"><img src="{% static 'images/icons/icons8-help-50.png' %} " alt="logout-logo" height="50" width="50">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class='main-container'>
+            <div class='dashboard-box-for-yourListing'>
+                <h1>Help</h1>
+            </div>
+        </div>        
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="jaini-regular">HESTIA</div>
+            <ul class="hyperlink-column">
+                <li><a href="{url 'Hestia:about'}">ABOUT US</a></li>
+                <li><a href="{url 'Hestia:contact'}">CONTACT US</a></li>
+                <li><a href="/privacy">PRIVACY POLICY</a></li>
+                <li><a href="{url 'Hestia:termsconditions'}">TERMS AND CONDITIONS</a></li>
+            </ul>
+            <div class="solid-line"></div>
+            <ul class="socials-row">
+                <li><img src=" {% static '/images/socials_logo/insta.png' %}" alt="instalogo">Instagram</li>
+            <li><img src="{% static '/images/socials_logo/twitter.png' %}" alt="twitter">Twitter</li>
+            <li><img src="{% static '/images/socials_logo/discord.png' %}" alt="discord">Discord</li>
+            <li><img src="{% static '/images/socials_logo/linkedin.png' %}" alt="linkedin">Linkedin</li>
+            <li><img src="{% static '/images/socials_logo/facebook.png' %}" alt="facebook">Facebook</li>
+            </ul>
+            <div class="solid-line"></div>
+        </div>
+    </footer>
+</body>
+</html>

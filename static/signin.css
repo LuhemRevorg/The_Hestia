@@ -1,0 +1,164 @@
+/* signin.css */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+/* Global styles */
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+.signin-lefty-box,
+.signin-righty-box {
+  flex: 1;
+  height: 100%;
+}
+
+.signin-lefty-box {
+  background-color: #EDE0D4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  height: 100vh;
+}
+
+.signin-righty-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+  height: 100%;
+
+}
+
+.row-equivalent-down {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5rem;
+  color: black;
+  align-items: center;
+}
+
+.row-equi-left {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+  width: fit-content; 
+}
+
+.row-equi-left p{
+  margin-bottom: 0;
+}
+
+.forma {
+  display: flex;
+  width: 430px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.sign-input[type='text'],
+.sign-input[type='password'],
+.sign-input[type='checkbox'] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid #AEAEAE;
+}
+
+label {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #AEAEAE;
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Text styling */
+.prata-heading,
+.prata-bigheading {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.abel-regular {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #000; 
+  text-align: center;
+}
+
+.blur-background {
+  background-color: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(10px); 
+  border-radius: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+}
+
+.checkbox-container label {
+  width: 500px;
+}
+
+.checkbox {
+  appearance: none;
+  width: 20px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.checkbox:checked {
+  background-color: #333;
+}
+
+.checkbox:checked::after {
+  content: "\2714";
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+
+.sign-input {
+  background-color: white;
+}

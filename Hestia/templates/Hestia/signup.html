@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-left-box" style="background-image: url('image1'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
+            <h1 class='prata-bigheading'>
+                <div class='blur-background'>
+                    CREATE AN ACCOUNT
+                </div>
+            </h1>
+        </div>
+        <div class="signup-right-box">
+            <h1 class='prata-heading'>WELCOME TO HESTIA</h1>
+            <form class='forma' action="{% url 'Hestia:register'%}" method="post">
+                {% csrf_token %}
+                <label for="username">User Name</label>
+                <input class="sign-input" type="text"  name="username" required/>
+                <br />
+                <label for="firstname">First Name</label>
+                <input class="sign-input" type="text"  name="firstname" required/>
+                <br />
+                <label for="lastname">Last Name</label>
+                <input class="sign-input" type="text" name="lastname"  required/>
+                <br />
+                <label for="email">Enter your email address</label>
+                <input class="sign-input" type="text" name="email"  required/>
+                <br />
+                <label for="institute">Enter the name of your Universit/ College</label>
+                <input class="sign-input" type="text" name="institute"   />
+                <br />
+                <label for="uniemail">Enter your university pr  ovided email address</label>
+                <input class="sign-input" type="text" name="uniemail"  />
+                <br />
+                <label for="phonenumber">Enter your mobile number to contact you</label>
+                <input class="sign-input" type="text" name="phonenumber"  />
+                <br />
+                <label for="password">Enter your password</label>
+                <input class="sign-input" type="password" name="psw" id="password" required/>
+                <br />
+                <label for="password">Confirm your password</label>
+                <input class="sign-input" type="password"   required/>
+                    <button>CREATE YOUR HESTIA ACCOUNT</button>
+                <br />
+            </form>
+            <div class='row-equivalent-down'>
+                <div>Already have an account?</div>
+                <button><a href="{%url 'Hestia:signin'%}">SIGN IN INSTEAD?</a></button>
+                <div>
+                    <!-- <a href="{% url 'Hestia:index' %}">return back</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+.container {
+    position: relative;
+    height: auto;
+  }
+
+  .a { 
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .animation-text {
+    position: absolute;
+    right: 400%;
+    font-size: 8rem;
+    color: black;
+    white-space: nowrap;
+    animation: slide-in 2s forwards;
+    z-index: 1;
+  }
+
+  .animation-text2 {
+    position: absolute;
+    right: 600%;
+    font-size: 5rem;
+    color: black;
+    white-space: nowrap;
+    animation: slide-in 2s forwards;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  
+  .show-animation {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .line {
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: black;
+    animation: line-slide 2s forwards;
+    z-index: 0;
+  }
+  
+  @keyframes slide-in {
+    0% { right: 100%; opacity: 0; }
+    100% { right: 10%; opacity: 1; }
+  }
+  
+  @keyframes line-slide {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  
+  .padding {
+    padding: 8rem;
+  }
+  
+  .cloudtext1, .cloudtext2 {
+    position: relative;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 700px;
+    padding: 1rem;
+    font-size: 3rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    animation-name: float-up;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  
+  .cloudtext2 {
+    margin-left: auto; 
+  }
+  
+  @keyframes float-up {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .cloudtext3 {
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    padding: 3rem;
+    font-size: 3rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    animation-name: float-up;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  .butlist {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-bottom: 10rem;
+}
+
+.butlist button {
+    background-color: #F5F1ED;
+    border: 2px solid #000;
+    border-radius: 5px; 
+    padding: 10px 20px;
+    color: #000; 
+    font-size: 24px; 
+    cursor: pointer; 
+    width: 294px;
+    height: 64px;
+    position: relative; /* Ensures the link fills the button */
+}
+
+.butlist button:hover {
+    background-color: #ddd; 
+}
+
+.butlist button a {
+    text-decoration: none;
+    color: black; /* Set link text color to black */
+    display: block; /* Make the anchor tag fill the button */
+    height: 100%; /* Ensure it fills the button's height */
+    width: 100%; /* Ensure it fills the button's width */
+    text-align: center; /* Center the text horizontally */
+    line-height: 64px; /* Center the text vertically */
+    position: absolute; /* Ensure it fills the button */
+    top: 0;
+    left: 0;
+}
+
+.butlist button a:link,
+.butlist button a:visited,
+.butlist button a:hover,
+.butlist button a:active {
+    text-decoration: none; /* Remove underline for all link states */
+    color: black; /* Ensure the color is black for all link states */
+}
+

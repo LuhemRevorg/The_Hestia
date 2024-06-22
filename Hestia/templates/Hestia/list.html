@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'landing.css' %}">
+    <link rel="stylesheet" href="{% static 'list.css' %}">
+    <title>List</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header">
+            <h1 class="top-logo-name">
+                <a href="{% url 'Hestia:index' %}"><img src="{% static 'images/landing_page/Logo.png' %}" alt="logo"></a>
+            </h1>
+            <ul>
+                <li><a href="{% url 'Hestia:listings' %}">Listings</a></li>
+                <li><a href="{% url 'Hestia:sublet' %}">Sublet</a></li>
+                <li><a href="{% url 'Hestia:about' %}">About us</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'Hestia:dashboard' %}">Dashboard</a></li>
+                <li>{{user.first_name}}</li>
+                {% else %}
+                <li><a href="{% url 'Hestia:signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'Hestia:signin' %}">Log In</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </header>
+    <div class='outer-box'>
+        <div class='titlebox'>
+            Let's find your home some trusted tenants.
+        </div>
+        <form class='sublet-form' action="{% url 'Hestia:sublet_request' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Please enter some information about your listing.</h1>
+            <div class="form-group">
+                <label for="street1">Street Address 1:</label>
+                <input class='big-input' type='text' placeholder="Street Address" name="street1" id="street1" required/>
+            </div>
+            <div class="form-group">
+                <label for="street2">Street Address 2:</label>
+                <input class='big-input' type='text' name="street2" id="street2" placeholder='Optional' />
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input class='big-input' type='text' name="zip" id="zip" placeholder='Enter your Zip code' required/>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input class='big-input' type='text' name="city" id="city" placeholder='The City' required/>
+            </div>
+            <div class="form-group">
+                <label for="province">Province:</label>
+                    <select name="province" id="province">
+                        <option value="AB">AB</option>
+                        <option value="BC">BC</option>
+                        <option value="MB">MB</option>
+                        <option value="NB">NB</option>
+                        <option value="NL">NL</option>
+                        <option value="NS">NS</option>
+                        <option value="NT">NT</option>
+                        <option value="NU">NU</option>
+                        <option value="ON">ON</option>
+                        <option value="PE">PE</option>
+                        <option value="SK">SK</option>
+                        <option value="QC">QC</option>
+                        <option value="YT">YT</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="university">University / College:</label>
+                <input class='big-input' type='text' name="university" id="university" placeholder='Closest to which University/College' required/>
+            </div>
+            <div class="form-group">
+                <label for="apartment">Accomodation Type:</label>
+                    <select name="apartment" id="apartment">
+                        <option value="apartment">Apartment</option>
+                        <option value="Condo">Condominium</option>
+                        <option value="townhouse">Town House</option>
+                        <option value="basement">Basement</option>
+                        <option value="duplex">Duplex</option>
+                        <option value="triplex">Triplex</option>
+                        <option value="coop">Co-operative Housing</option>
+                        <option value="other">Other</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="rooms">Number of Rooms available:</label>
+                <input type='number' name="rooms" id="rooms" placeholder='Number of Rooms' required/>
+            </div>
+            <div class="form-group">
+                <label for="price">Price per room:</label>
+                <input type='number' name="price" id="price" placeholder='Price in CAD per month' required/>
+            </div>
+            <div class="form-group">
+                <label for="bathrooms">Number of Rooms available:</label>
+                <input type='number' name="bathrooms" id="bathrooms" placeholder='Number of Bathrooms' required/>
+            </div>
+            <div class="form-group">
+                <label for="furnished">Furnished:</label>
+                    <select name="furnished" id="furnished">
+                        <option value="apartment">Yes</option>
+                        <option value="Condo">No</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="start">Beginning of the tenure:</label>
+                    <input type="date" id="start" name="start">
+                </div>
+            <div class="form-group">
+                <label for="duration">Semesters:</label>
+                <input class='number' name="duration" type='text' id="duration" placeholder='Number of Semesters' />
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder='For the tenants'></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cover_image">Add Cover Image:</label>
+                <input type="file" name="cover_image" id="cover_image" accept="image/*" multiple/>
+            </div>
+            <div class="form-group">
+                <label for="images">Add images:</label>
+                <input type="file" name="images" id="images" accept="image/*" multiple />
+            </div>
+            <button type='submit'>Confirm</button>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="jaini-regular">HESTIA</div>
+        <ul class="hyperlink-column">
+            <li><a href="{url 'Hestia:about'}">ABOUT US</a></li>
+            <li><a href="{url 'Hestia:contact'}">CONTACT US</a></li>
+            <li><a href="/privacy">PRIVACY POLICY</a></li>
+            <li><a href="{url 'Hestia:termsconditions'}">TERMS AND CONDITIONS</a></li>
+        </ul>
+        <div class="solid-line"></div>
+        <ul class="socials-row">
+            <li><img src=" {% static '/images/socials_logo/insta.png' %}" alt="instalogo">Instagram</li>
+            <li><img src="{% static '/images/socials_logo/twitter.png' %}" alt="twitter">Twitter</li>
+            <li><img src="{% static '/images/socials_logo/discord.png' %}" alt="discord">Discord</li>
+            <li><img src="{% static '/images/socials_logo/linkedin.png' %}" alt="linkedin">Linkedin</li>
+            <li><img src="{% static '/images/socials_logo/facebook.png' %}" alt="facebook">Facebook</li>
+        </ul>
+        <div class="solid-line"></div>
+    </div>
+</body>
+</html>

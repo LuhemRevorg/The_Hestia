@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<body>
+    <div class="signin-container">
+        <div class="signin-lefty-box">
+            <h1 class="prata-heading">SIGN IN TO YOUR HESTIA ACCOUNT</h1>
+            <form class="forma" action="{% url 'Hestia:login_request'%}" method="POST">
+                {% csrf_token %}
+                <label for="username">User Name</label>
+                <input class="sign-input" placeholder="Enter your User Name" type="text"  name="username" required/>
+                <br />
+                <label for="psw">Password</label>
+                <input class="sign-input" placeholder="Enter the password" name="psw" type="password" required/>
+                <br />
+                <button>Sign in</button>
+            </form>
+            <div class='checkbox-container'>
+                <label>Keep me signed in</label>
+                <input type="checkbox" class='checkbox'/> 
+            </div>
+            <div class='row-equivalent-down'>
+                <div>Dont have an account?</div>
+                <button><a href="{% url 'Hestia:signup' %}">CREATE AN ACCOUNT INSTEAD?</a></button>
+            </div>
+            <!-- <a href="{% url 'Hestia:index' %}">return back</a> -->
+        </div>
+        <div class="signin-righty-box" style="background-image: url('image1'); height: 100vh;">
+            <div class='blur-background'>
+                <h1 class='prata-bigheading'>WELCOME BACK</h1>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
+

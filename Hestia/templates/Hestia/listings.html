@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hestia Listings Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jaini&display=swap">
+    <link rel="stylesheet" href="{% static 'filterbox.css' %}">
+    <link rel="stylesheet" href="{% static 'listing.css' %}">
+    <link rel="stylesheet" href="{% static 'landing.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header">
+            <h1 class="top-logo-name">
+                <a href="{% url 'Hestia:index' %}"><img src="{% static 'images/landing_page/Logo.png' %}" alt="logo"></a>
+            </h1>
+            <ul>
+                <li><a href="{% url 'Hestia:listings' %}">Listings</a></li>
+                <li><a href="{% url 'Hestia:sublet' %}">Sublet</a></li>
+                <li><a href="{% url 'Hestia:about' %}">About us</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'Hestia:dashboard' %}">Dashboard</a></li>
+                <li>{{user.first_name}}</li>
+                {% else %}
+                <li><a href="{% url 'Hestia:signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'Hestia:signin' %}">Log In</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="filterbox">
+            <form method="post" action="{% url 'Hestia:filter' %}" class="formFilter">
+                {% csrf_token %}
+                <label for="searchCity">City:</label>
+                <input type="text" id="searchCity" name="city" placeholder="Enter City name">
+                <div class='scroll-container'>
+                    <label for="min-price">Minimum Price:</label>
+                    <div class="value-display" id="min-price-value">$500</div>
+                    <input type="range" id="min-price" name="min-price" min="500" max="2700" step="100" value="500" oninput="updatePriceDisplay(this)">
+                  </div>
+                  <div class="scroll-container">
+                    <label for="max-price">Maximum Price:</label>
+                    <div class="value-display" id="max-price-value">$1,200+</div>
+                    <input type="range" id="max-price" name="max-price" min="1200" max="3000" step="100" value="3000" oninput="updatePriceDisplay(this)">
+                  </div>
+                  <div class="scroll-container">
+                    <label for="rooms">Number of Rooms:</label>
+                    <input type="number" id="rooms" name="rooms" min="1" max="10" step="1">
+                  </div>
+                  <button type="submit" class="filter-search">Apply Filters</button>
+            </form>
+        </div>
+        <div class="grid-container">
+            {% if is_empty %}
+            <div class="grid-item">No Listing Currently!</div>
+            {% else %}
+            {% for prop in properties %}
+            <a href="{% url 'Hestia:detailView' prop.prop_id %}">    
+                <div class="grid-item">
+                    <img align= "left" style="width: 50%; height: 100%;" src="{{ prop.cover_image.url }}"/>
+                    <h3 style= "margin: 0;">{{prop.street1}}</h3>
+                    <div style="width: 100%; height: 100%"><span style="color: black; font-size: 20px; font-family: Abel; font-weight: 400; word-wrap: break-word">${{prop.price}} /mo<br/>5km<br/>{{prop.rooms}}B {{prop.rooms}}W<br/>{{prop.duration}} months<br/></span><span style="color: #7F5539; font-size: 18px; font-family: Abel; font-weight: 400; word-wrap: break-word">HESTIA VERIFIED</span></div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="jaini-regular">HESTIA</div>
+        <ul class="hyperlink-column">
+            <li><a href="{url 'Hestia:about'}">ABOUT US</a></li>
+            <li><a href="{url 'Hestia:contact'}">CONTACT US</a></li>
+            <li><a href="/privacy">PRIVACY POLICY</a></li>
+            <li><a href="{url 'Hestia:termsconditions'}">TERMS AND CONDITIONS</a></li>
+        </ul>
+        <div class="solid-line"></div>
+        <ul class="socials-row">
+            <li><img src=" {% static '/images/socials_logo/insta.png' %}" alt="instalogo">Instagram</li>
+            <li><img src="{% static '/images/socials_logo/twitter.png' %}" alt="twitter">Twitter</li>
+            <li><img src="{% static '/images/socials_logo/discord.png' %}" alt="discord">Discord</li>
+            <li><img src="{% static '/images/socials_logo/linkedin.png' %}" alt="linkedin">Linkedin</li>
+            <li><img src="{% static '/images/socials_logo/facebook.png' %}" alt="facebook">Facebook</li>
+        </ul>
+        <div class="solid-line"></div>
+    </footer>
+</body>
+</html>
