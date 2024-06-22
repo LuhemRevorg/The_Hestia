@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'HestiaProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'dcbvsngtvk',
+        'PASSWORD': '{your-password}',
+        'HOST': 'the-hestia-server.postgres.database.azure.com',
+        'PORT': '5432',
     }
 }
 
