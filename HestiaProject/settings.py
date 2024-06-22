@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'dcbvsngtvk',
-        'PASSWORD': '{your-password}',
+        'PASSWORD': 'Poopsalot69',
         'HOST': 'the-hestia-server.postgres.database.azure.com',
         'PORT': '5432',
     }
