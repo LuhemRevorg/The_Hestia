@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-4dez#*=fjdf)5@(ly2nq(--+cp2%j*tbk5i8^g&c59f8lb+87n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['the-hestia.azurewebsites.net',]
+ALLOWED_HOSTS = ['the-hestia.azurewebsites.net',
+                 '127.0.0.1',]
 
 
 # Application definition
@@ -123,11 +124,11 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 MEDIA_URL = '/media/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(PROJECT_ROOT,'static')
 ]
 
 
